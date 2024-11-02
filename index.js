@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const express = require("express");
 const { userRouter } = require("./Routes/userRouter");
 const { adminRouter } = require("./Routes/adminRoute");
+const mongoose = require("mongoose");
 
 require("dotenv").config();
 
