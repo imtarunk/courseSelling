@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaSearch, FaStar, FaChevronLeft, FaChevronRight, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import studentHoldingBookImgage from '../assets/img1.png'
+import img2 from '../assets/img2.png'
 
 function LandingPage() {
   const [currentCourseIndex, setCurrentCourseIndex] = useState(0);
@@ -302,9 +303,9 @@ function LandingPage() {
               </motion.button>
             </div>
             <motion.img
-              src="/placeholder.svg?height=300&width=300&text=Join+Now"
+              src={img2}
               alt="Join illustration"
-              className="w-64"
+              className="w-80"
               whileHover={{ rotate: 5 }}
             />
           </motion.div>
