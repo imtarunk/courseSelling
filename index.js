@@ -13,13 +13,11 @@ app.use("/api/v1/", userRouter);
 app.use("/api/v1/admin", adminRouter);
 
 const main = async () => {
-  await mongoose.connect(
-    "mongodb+srv://tarunshr145:MXhoRQK9L3S7iEB0@cluster0.zuk69.mongodb.net/Versity"
-  );
+  await mongoose.connect(process.env.mongoose_URI);
   console.log("db connected");
 
-  app.listen(3000, () => {
-    console.log("server is running on port 3000");
+  app.listen(process.env.PORT, () => {
+    console.log(`Backend is running on port ${process.env.PORT}`);
   });
 };
 
