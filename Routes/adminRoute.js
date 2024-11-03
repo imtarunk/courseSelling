@@ -4,6 +4,7 @@ const adminRouter = Router();
 const z = require("zod");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const AdminAuth = require("../middleware/auth");
 
 adminRouter.post("/login", async (req, res) => {
   try {
@@ -132,7 +133,7 @@ adminRouter.post("/signup", async (req, res) => {
   }
 });
 
-adminRouter.post("/add-course", (req, res) => {
+adminRouter.post("/add-course", AdminAuth(), (req, res) => {
   res.send("This is admin");
 });
 
