@@ -35,14 +35,14 @@ userRouter.post("/login", async (req, res) => {
 
     // Generate a JWT token for the authenticated user
     const idOfLogedUser = findUser._id;
-    const token = jwt.sign({ idOfLogedUser }, process.env.jwtKey, {
+    const token = jwt.sign({ idOfLogedUser }, process.env.JWT_USER_KEY, {
       expiresIn: "1h",
     });
 
     // Return a success response with the token
     res.status(200).json({
       success: true,
-      message: "Login successful",
+      message: `Login successful welcome back ${findUser.fName}`,
       token: token,
       idOfLogedUser,
     });

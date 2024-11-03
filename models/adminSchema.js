@@ -1,29 +1,14 @@
 const mongoose = require("mongoose");
+const { type } = require("os");
+const { number } = require("zod");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  user: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  adminEmail: {
-    type: String,
-    required: true,
-    unique: true,
-    lowercase: true,
-    trim: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  courses: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Course", // Refers to the Course model
-    },
-  ],
+const adminSchema = new mongoose.Schema({
+  fName: { type: String, required: true },
+  lName: { type: String, required: true },
+  adminEmail: { type: String, unique: true, required: true },
+  phone: { type: String, required: true },
+  password: { type: String, required: true },
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Admin", adminSchema);
